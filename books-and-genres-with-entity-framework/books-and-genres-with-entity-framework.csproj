@@ -73,17 +73,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BooksAndGenresModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="BooksAndGenresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="BooksAndGenresForm.Designer.cs">
+      <DependentUpon>BooksAndGenresForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Genres.cs">
       <DependentUpon>BooksAndGenresModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BooksAndGenresForm.resx">
+      <DependentUpon>BooksAndGenresForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
