@@ -42,6 +42,18 @@ namespace books_and_genres_with_entity_framework
             refreshDataGridView_Books();
         }
 
+        private void btnDeleteBook_Click(object sender, EventArgs e)
+        {
+            Books book = dgvBooks.CurrentRow.DataBoundItem as Books;
+
+            using (var db = new EF_DBEntities())
+            {
+                db.Books.Attach(book);
+                db.Books.Remove(book);
+                db.SaveChanges();
+            }
+
+            refreshDataGridView_Books();
         }
 
         private List<Books> getBooks()
@@ -67,6 +79,7 @@ namespace books_and_genres_with_entity_framework
 
             return genres;
         }
+
         private void refreshDataGridView_Books()
         {
             dgvBooks.DataSource = getBooks();
