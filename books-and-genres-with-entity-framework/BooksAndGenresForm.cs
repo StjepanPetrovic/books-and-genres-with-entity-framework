@@ -20,9 +20,26 @@ namespace books_and_genres_with_entity_framework
             refreshDataGridView_Genres();
         }
 
+        private void btnAddBook_Click(object sender, EventArgs e)
+        {
+            using (var db = new EF_DBEntities())
+            {
+                Genres genre = dgvGenres.CurrentRow.DataBoundItem as Genres;
 
-            dgvGenres.DataSource = getGenres();
-            dgvGenres.Columns[2].Visible = false;
+                Books book = new Books
+                {
+                    Title = txtTitle.Text,
+                    MainAuthor = txtAuthor.Text,
+                    NumOfPages = int.Parse(txtPages.Text),
+                    IdGenres = genre.Id,
+                };
+
+                db.Books.Add(book);
+                db.SaveChanges();
+            }
+
+
+            refreshDataGridView_Books();
         }
 
         }
