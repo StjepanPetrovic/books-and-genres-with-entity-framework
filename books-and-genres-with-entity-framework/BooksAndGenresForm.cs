@@ -16,8 +16,10 @@ namespace books_and_genres_with_entity_framework
         {
             InitializeComponent();
 
-            dgvBooks.DataSource = getBooks();
-            dgvBooks.Columns[5].Visible = false;
+            refreshDataGridView_Books();
+            refreshDataGridView_Genres();
+        }
+
 
             dgvGenres.DataSource = getGenres();
             dgvGenres.Columns[2].Visible = false;
@@ -47,6 +49,17 @@ namespace books_and_genres_with_entity_framework
             }
 
             return genres;
+        }
+        private void refreshDataGridView_Books()
+        {
+            dgvBooks.DataSource = getBooks();
+            dgvBooks.Columns[5].Visible = false;
+        }
+
+        private void refreshDataGridView_Genres()
+        {
+            dgvGenres.DataSource = getGenres();
+            dgvGenres.Columns[2].Visible = false;
         }
     }
 }
